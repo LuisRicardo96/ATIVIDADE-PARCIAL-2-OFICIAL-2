@@ -107,10 +107,12 @@ public class TelaEmpresaListagem extends JFrame {
 		));
 		scrAlunos.setViewportView(tblAlunos);
 		
+		// Validação de campo
 		btnExcluir = new JButton("Excluir Aluno");
 		
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(tblAlunos.getSelectedRow() != -1) {
 				int id = (int) tblAlunos.getModel().getValueAt(tblAlunos.getSelectedRow(), 0);
 				int i = JOptionPane.showConfirmDialog(
 				        null, 
@@ -126,6 +128,10 @@ public class TelaEmpresaListagem extends JFrame {
 				}
 				else if(i == JOptionPane.CANCEL_OPTION) {
 					JOptionPane.showMessageDialog(null, "Operação Cancelada!");
+				}}
+				else
+				{
+					JOptionPane.showMessageDialog(scrAlunos, "Você não selecionou um aluno!");
 				}
 			}
 		});
@@ -142,6 +148,7 @@ public class TelaEmpresaListagem extends JFrame {
 		btnTelaEdicao = new JButton("Editar Aluno");
 		btnTelaEdicao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			if(tblAlunos.getSelectedRow() != -1) {
 				int id = (int) tblAlunos.getModel().getValueAt(tblAlunos.getSelectedRow(), 0);
 				TelaEmpresaEdicao telaEmpresaEdicao = new TelaEmpresaEdicao(empresaRepo, id);
 				telaEmpresaEdicao.addWindowListener(new WindowAdapter() {
@@ -150,6 +157,9 @@ public class TelaEmpresaListagem extends JFrame {
 					}
 				});
 				telaEmpresaEdicao.setVisible(true);
+			}else {
+				JOptionPane.showMessageDialog(scrAlunos, "Você não selecionou um aluno!");
+			}
 			}
 		});
 		btnTelaEdicao.setBounds(559, 66, 157, 44);
