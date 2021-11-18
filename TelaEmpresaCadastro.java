@@ -101,6 +101,7 @@ public class TelaEmpresaCadastro extends JFrame {
 		contentPane.add(txtProfissao);
 		txtProfissao.setColumns(10);
 		
+		// Validação de campo
 		JButton btnCadastrar = new JButton("Cadastrar");
 		
 		btnCadastrar.addActionListener(new ActionListener() {
