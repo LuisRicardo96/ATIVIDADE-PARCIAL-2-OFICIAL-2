@@ -114,12 +114,12 @@ public class TelaEmpresaEdicao extends JFrame {
 			
 			
 			{
-				
+				// Validação de campo
 				if(txtNome.getText().trim().equals("") || txtCidade.getText().trim().equals("") || txtBairro.getText().trim().equals("") || txtEndereco.getText().trim().equals("") || txtProfissao.getText().trim().equals("")){
 					
 					JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Alerta", JOptionPane.WARNING_MESSAGE);
 					
-				}else
+				}else {
 					empresa.setNome(txtNome.getText());
 					empresa.setCidade(txtCidade.getText());
 					empresa.setBairro(txtBairro.getText());
@@ -129,7 +129,7 @@ public class TelaEmpresaEdicao extends JFrame {
 					JOptionPane.showMessageDialog(btnEditar, "Aluno editado com sucesso!");
 					dispose();
 				
-			}
+			}}
 		});
 		btnEditar.setBounds(37, 232, 100, 23);
 		contentPane.add(btnEditar);
